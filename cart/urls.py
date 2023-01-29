@@ -4,4 +4,11 @@ from . import views
 
 app_name = "cart"
 
-urlpatterns = []
+urlpatterns = [
+    path("add-to-cart/<int:product_id>/", views.add_to_cart, name="add_to_cart"),
+    path(
+        "substract-to-cart/<int:product_id>/",
+        views.substract_to_cart,
+        name="substract_to_cart",
+    ),
+]
