@@ -3,9 +3,12 @@
   <div class="max-w-6xl mx-auto flex flex-wrap items-start py-6 px-6 xl:px-0">
     <div class="filter w-full lg:w-1/4">
       <h3 class="mb-3 text-xl uppercase">Search</h3>
-      <form>
+      <form method="get" action=".">
         <div class="flex">
-          <input type="text" class="p-4 bg-gray-100 border-0" placeholder="Search..." />
+          <input type="text"
+                 class="p-4 bg-gray-100 border-0"
+                 placeholder="Search..."
+                 name="query"/>
           <button class="p-4 bg-gray-100 border-0">
             <svg xmlns="http://www.w3.org/2000/svg"
                  fill="none"
@@ -21,12 +24,14 @@
       <h3 class="my-3 text-xl uppercase">Categories</h3>
       <ul class="space-y-2">
         <li>
-          <a href="#" class="text-purple-500">All categories</a>
+          <a href="{% url 'core:shop' %}"
+             class=" {% if not 'category' in request.path %} text-purple-500 {% else %} text-gray-500 {% endif %} ">All categories</a>
         </li>
         {% if all_categories %}
           {% for category in all_categories %}
             <li>
-              <a href="#" class="text-gray-500">{{ category.name | capfirst }}</a>
+              <a href="{% url 'core:products_by_category' category.slug %}"
+                 class=" {% if category.slug in request.path %} text-purple-500 {% else %} text-gray-500 {% endif %} ">{{ category.name | capfirst }}</a>
             </li>
           {% endfor %}
         {% endif %}
