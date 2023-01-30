@@ -6,6 +6,14 @@ from products.models import Category, Product
 # Create your views here.
 
 
+def signup(request):
+    return render(request, "core/signup.html")
+
+
+def login(request):
+    return render(request, "core/login.html")
+
+
 def frontpage(request):
     products = Product.objects.all()[0:8]
     return render(request, "core/frontpage.html", {"products": products})

@@ -11,4 +11,6 @@ urlpatterns = [
     path(
         "category/<slug:slug>/", views.products_by_category, name="products_by_category"
     ),
+    path("signup/", views.signup, name="signup"),
+    path("login/", views.login, name="login"),
 ]
