@@ -1,5 +1,5 @@
 from django.urls import path
-
+from django.contrib.auth.views import LoginView
 from . import views
 
 app_name = "core"
@@ -12,6 +12,6 @@ urlpatterns = [
         "category/<slug:slug>/", views.products_by_category, name="products_by_category"
     ),
     path("signup/", views.signup, name="signup"),
-    path("login/", views.login, name="login"),
+    path("login/", LoginView.as_view(template_name="core/login.html"), name="login"),
     path("logout/", views.logout_view, name="logout"),
 ]

@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 
 from products.models import Category, Product
 
-from .forms import LoginForm, SignUpForm
+from .forms import SignUpForm
 
 # Create your views here.
 
@@ -20,9 +20,6 @@ def signup(request):
         form = SignUpForm()
     return render(request, "core/signup.html", {"form": form})
 
-
-# def login(request):
-#     return render(request, "core/login.html")
 
 def logout_view(request):
     logout(request)
