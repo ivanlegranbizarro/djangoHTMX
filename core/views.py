@@ -1,17 +1,32 @@
+from django.contrib.auth import login, logout
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from products.models import Category, Product
+
+from .forms import LoginForm, SignUpForm
 
 # Create your views here.
 
 
 def signup(request):
-    return render(request, "core/signup.html")
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("/")
+    else:
+        form = SignUpForm()
+    return render(request, "core/signup.html", {"form": form})
 
 
-def login(request):
-    return render(request, "core/login.html")
+# def login(request):
+#     return render(request, "core/login.html")
+
+def logout_view(request):
+    logout(request)
+    return redirect("/")
 
 
 def frontpage(request):

@@ -18,6 +18,11 @@
                         <li>
                             <a href="#">About</a>
                         </li>
+                        {% if request.user.is_authenticated %}
+                            <li>
+                                <a href="{% url 'core:logout' %}">Log out</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
                 <div class="menu-right flex items-center space-x-4">
