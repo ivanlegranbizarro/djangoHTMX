@@ -17,3 +17,11 @@ def substract_to_cart(request, product_id):
     cart.subs(product_id)
 
     return render(request, "cart/menu_cart.html")
+
+
+def cart(request):
+    return render(request, "cart/cart.html")
+
+
+def checkout(request):
+    return render(request, "cart/checkout.html")

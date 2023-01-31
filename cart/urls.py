@@ -11,4 +11,6 @@ urlpatterns = [
         views.substract_to_cart,
         name="substract_to_cart",
     ),
+    path("", views.cart, name="cart"),
+    path("checkout/", views.checkout, name="checkout"),
 ]
