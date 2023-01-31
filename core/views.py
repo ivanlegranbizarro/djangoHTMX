@@ -1,4 +1,4 @@
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.db.models import Q
 from django.shortcuts import redirect, render
 
