@@ -14,4 +14,5 @@ urlpatterns = [
     path("signup/", views.signup, name="signup"),
     path("login/", LoginView.as_view(template_name="core/login.html"), name="login"),
     path("logout/", views.logout_view, name="logout"),
+    path("my-account/", views.my_account, name="my_account"),
 ]

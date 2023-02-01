@@ -1,4 +1,5 @@
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import redirect, render
 
@@ -59,3 +60,8 @@ def products_by_category(request, slug):
 def products_detail(request, slug):
     product = Product.objects.get(slug=slug)
     return render(request, "core/products_detail.html", {"product": product})
+
+
+@login_required
+def my_account(request):
+    return render(request, "core/my_account.html")
