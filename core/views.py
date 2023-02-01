@@ -65,3 +65,8 @@ def products_detail(request, slug):
 @login_required
 def my_account(request):
     return render(request, "core/my_account.html")
+
+
+@login_required
+def edit_my_account(request):
+    return render(request, "core/edit_my_account.html")

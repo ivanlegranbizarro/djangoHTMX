@@ -11,6 +11,8 @@
       <strong>Username:</strong> {{ request.user.username }}
       <br/>
       <strong>Email:</strong> {{ request.user.email }}
+      <br/>
+      <a href="{% url 'core:edit_my_account' %}">Edit</a>
     </div>
     <hr/>
     <h2 class="my-6 text-xl">My Orders</h2>

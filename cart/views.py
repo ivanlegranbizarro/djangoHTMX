@@ -27,3 +27,4 @@ def cart(request):
 @login_required
 def checkout(request):
     return render(request, "cart/checkout.html")
+
